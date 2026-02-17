@@ -1,56 +1,37 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Jordan - Awwwards Edition</title>
-
     <link rel="stylesheet" href="style.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets/Air-Jordan-emblem-removebg-preview.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/Air-Jordan-emblem-removebg-preview.png">
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-
     <script src="https://unpkg.com/split-type"></script>
-
-
-
     <script type="importmap">
-
         {
-
             "imports": {
-
                 "gsap": "https://unpkg.com/gsap@3.12.5/index.js",
-
                 "gsap/ScrollTrigger": "https://unpkg.com/gsap@3.12.5/ScrollTrigger.js"
-
             }
-
         }
-
     </script>
-
 </head>
 
 <body>
     <!-- LOADING SCREEN -->
-
     <div class="loader-screen">
-
         <!-- SVG Filter para Distorção Líquida -->
         <svg style="display: none;">
             <defs>
                 <filter id="liquidFilter">
                     <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="3" result="noise" />
-                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R"
+                        yChannelSelector="G" />
                 </filter>
             </defs>
         </svg>
@@ -62,309 +43,159 @@
         <audio id="audio-intro" src="Assets/intro.mp3" preload="auto"></audio>
 
         <div class="loader-content">
-
             <div class="loader-logo-wrapper">
-
                 <img src="./Assets/Air-Jordan-emblem-removebg-preview.png" class="loader-logo-bg"
                     alt="Jordan Logo Background">
-
                 <img src="./Assets/Air-Jordan-emblem-removebg-preview.png" class="loader-logo-fill"
                     alt="Jordan Logo Fill">
-
             </div>
-
             <span class="loader-brand">AIR JORDAN</span>
-
             <span class="loader-counter">0%</span>
-
         </div>
-
     </div>
 
-
-
     <div class="noise-overlay"></div>
-
     <div class="cursor-dot"></div>
-
     <div class="cursor-outline"></div>
-
     <div id="transition-overlay"></div>
 
-
-
     <nav class="navbar navbar-dark bg-transparent fixed-top">
-
         <div class="container-fluid">
-
             <a class="navbar-brand hover-trigger" href="#">
-
                 <img src="Assets/Air-Jordan-emblem-removebg-preview.png" alt="Jordan Logo" width="70"
                     class="d-inline-block align-text-top">
-
             </a>
-
             <button class="navbar-toggler border-0 hover-trigger" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar">
-
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
-
                 <div class="menu-watermark">MENU</div>
-
                 <div class="offcanvas-header">
-
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
-
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Fechar"></button>
-
                 </div>
 
                 <div class="offcanvas-body">
-
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-
                         <li class="nav-item">
-
                             <a class="nav-link active hover-trigger" href="#">Home</a>
-
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link active hover-trigger" href="#section360">O Ícone em Movimento</a>
-
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link active hover-trigger" href="#detailssection">Detalhes</a>
-
                         </li>
-
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
-
     </nav>
 
-
-
     <main class="hero">
-
         <div class="ui-layer">
-
-
-
             <div class="big-number">23</div>
-
-
-
             <div class="shoe-visual">
-
                 <img id="shoe-img" src="Assets/OIP.inkJooQc2F_VeIryQLr4tgHaHa-removebg-preview (1).png"
                     alt="Jordan Shoe">
-
             </div>
-
-
-
             <div class="content-wrapper">
-
                 <h1 class="jordan-title">JORDAN <span id="model-number">11</span></h1>
-
-
-
                 <div class="description-box">
-
                     <p id="jordan-desc">
-
                         A colorway “Legend Blue” é historicamente conhecida por ter sido associada à Jordan 11 com tons
                         claros em azul, inspirados na Universidade da Carolina do Norte.
-
                     </p>
-
                 </div>
-
             </div>
 
-
-
             <div class="carousel-nav">
-
                 <button id="prev-btn" class="nav-btn hover-trigger" aria-label="Anterior">
-
                     <span aria-hidden="true">←</span>
-
                 </button>
 
                 <button id="next-btn" class="nav-btn hover-trigger" aria-label="Próximo">
-
                     <span aria-hidden="true">→</span>
-
                 </button>
-
             </div>
-
-
-
         </div>
-
     </main>
 
-
-
     <section class="section-360" id="section360">
-
         <div class="header-360">
-
             <h2 class="title-360 reveal-text">O Ícone em Movimento</h2>
-
             <p class="subtitle-360 reveal-text">O Jordan 1 é história. É rebeldia. É cultura.</p>
-
         </div>
-
         <div class="viewer-360">
-
             <span class="letters-side reveal-text">FLI</span>
-
             <!-- Adicione o src do vídeo abaixo -->
-
             <video id="shoe-360-visual" src="" muted playsinline loop autoplay style="background:transparent;"></video>
-
             <span class="year-display reveal-text">1985</span>
-
             <span class="letters-side reveal-text">GHT</span>
-
         </div>
-
     </section>
-
-
 
     <section class="details-section" id="detailssection">
-
         <div class="detail-block" id="upper-block">
-
             <div class="detail-content">
-
                 <h3 class="detail-title reveal-text" id="upper-title">Cabedal Premium</h3>
-
                 <p class="detail-text reveal-text" id="upper-text">O Jordan 11 revolucionou com o uso de couro
                     envernizado...</p>
-
             </div>
-
             <div class="detail-image">
-
                 <img id="upper-img" alt="Detalhe Cabedal" class="parallax-img">
-
             </div>
-
         </div>
-
-
 
         <div class="detail-block black-bg" id="sole-block">
-
             <div class="detail-image">
-
                 <img id="sole-img" alt="Detalhe Sola" class="parallax-img">
-
             </div>
-
             <div class="detail-content">
-
                 <h3 class="detail-title reveal-text" id="sole-title">Tração Lendária</h3>
-
                 <p class="detail-text reveal-text" id="sole-text">A sola translúcida "Icy" revela a placa de fibra...
                 </p>
-
             </div>
-
         </div>
-
-
 
         <div class="detail-block" id="cushion-block">
-
             <div class="detail-content">
-
                 <h3 class="detail-title reveal-text" id="cushion-title">Air Technology</h3>
-
                 <p class="detail-text reveal-text" id="cushion-text">Amortecimento Air encapsulado em todo o
                     comprimento...</p>
-
             </div>
-
             <div class="detail-image">
-
                 <img id="cushion-img" alt="Detalhe Amortecimento" class="parallax-img">
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <footer class="site-footer">
-
         <div class="footer-content">
-
             <div class="footer-top">
-
                 <div class="typing-wrapper">
-
                     <span class="typing-text">“A sneaker is just a sneaker until someone puts it on”</span><span
                         class="cursor-caret"></span>
-
                 </div>
-
                 <img src="Assets/michaelAssinatura.webp" alt="Michael Jordan Signature" class="mj-signature">
-
             </div>
-
             <div class="footer-divider"></div>
-
             <div class="footer-bottom">
-
                 <div class="footer-left">
-
                     <a href="https://www.nike.com/jordan" target="_blank" class="hover-trigger">Jordan Collection</a>
-
                 </div>
-
                 <div class="footer-right">
-
                     <span>Powered by: </span>
-
                     <a href="https://github.com/BssEric" target="_blank" class="github-link hover-trigger">BssEric</a>
-
                 </div>
-
             </div>
-
         </div>
-
     </footer>
-
-
-
     <script type="module" src="main.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>
