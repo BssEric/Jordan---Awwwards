@@ -13,7 +13,7 @@ Inspirado em sites premiados do Awwwards, o projeto foca em:
 
 ##  Live Website
 
-👉 [https://seusite.vercel.app](https://jordan-awwwards.vercel.app/)
+👉 [https://Jordan - Awwwards.vercel.app](https://jordan-awwwards.vercel.app/)
 
 ---
 
