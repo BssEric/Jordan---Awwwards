@@ -523,6 +523,24 @@ ui.body.style.color = slidesData[0].textColor;
 ui.bigNumber.style.color = slidesData[0].bigNumberColor;
 updateDetails(slidesData[0]);
 
+// --- 9.1 OTIMIZAÇÃO: PRELOAD ASSETS ---
+// Carrega as imagens do slider silenciosamente para evitar "piscar" na troca
+function preloadAssets() {
+    slidesData.forEach(slide => {
+        // Preload Imagem Principal
+        const img = new Image();
+        img.src = slide.imagePath;
+
+        // Preload Detalhes (Opcional, mas recomendado)
+        if(slide.details) {
+            new Image().src = slide.details.upper.img;
+            new Image().src = slide.details.sole.img;
+            new Image().src = slide.details.cushion.img;
+        }
+    });
+}
+preloadAssets(); // Inicia imediatamente
+
 // --- 10. LOADING SCREEN ANIMATION ---
 const loaderCounter = document.querySelector('.loader-counter');
 const loaderScreen = document.querySelector('.loader-screen');
